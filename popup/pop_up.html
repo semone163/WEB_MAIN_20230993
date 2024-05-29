@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>팝업창 테스트</title>
+        <script type="text/javascript" src="../JS/popup.js"></script>
+        <script src="popup_close.js"></script>
+    </head>
+    <body onload="show_clock();">
+        <!--<h1>팝업창 확인</h1>-->
+        <h1 class="display-1"><i class="bi bi-alarm"></i> 팝업창 확인<br><br></h1>
+        <h1 class="display-4"><div id="divClock" class="clock"></div></h1>
+        <div id="divClock" class="clock"> </div>
+    </body>
+</html>
+
+<!--카운트 다운 출력을 최하단 추가한다.-->
+<h1 class="display-4"><div id="Time" class="clock"></div></h1>
+
+<!--popup 폴더의 pop_up.html 을 수정한다.-->
+<input class="form-check-input" type="checkbox" id="check_popup" onclick="closePopup();">
+<label class="form-check-label" for="flexCheckChecked">하루에 한번만 열기</label>
