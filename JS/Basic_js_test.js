@@ -29,10 +29,10 @@ console.log(e);
 document.getElementById("search_btn").addEventListener("click", search_message);
 
 //search 함수 수정 => 화살표 이용
-//function search_message(){
-//    alert("검색을 수행합니다!");
-//}
-const search_message = () => { //()는 인자값에 따라 다르다.
-    const c = '검색을 수행합니다!';
-    alert(c);
+function search_message(){
+    alert("검색을 수행합니다!");
 }
+//const search_message = () => { //()는 인자값에 따라 다르다.
+    //const c = '검색을 수행합니다!';
+    //alert(c);
+//}
