@@ -52,3 +52,14 @@ function session_check() { //세션 검사
         location.href='login/index_login.html'; // 로그인된 페이지로 이동
     }
 }
+
+function session_join_get() { // 로그인 후 복호화된 객체 내용 출력
+    if (sessionStorage) {
+        let encryptedData = sessionStorage.getItem("Session_Storage_encrypted");
+        let decryptedData = decrypt_text(encryptedData); // 복호화
+        let obj = JSON.parse(decryptedData); // JSON 문자열을 객체로 변환
+        console.log(obj); // 콘솔에 객체 내용 출력
+    } else {
+        alert("세션 스토리지 지원하지 않음");
+    }
+}

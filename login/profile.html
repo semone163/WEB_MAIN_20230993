@@ -1,0 +1,244 @@
+<!--로그인 후의 페이지-->
+<!--로그인 버튼을 누르면 이동하는 페이지-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<!--이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다.-->
+
+<html>
+    <head>
+        <Meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+        <title>LOL 메인화면</title>
+        <meta name="author" content="학번">
+        <meta name="keywords" content="computer">
+        <base href="http://127.0.0.1:5500">
+
+        
+        <script type="text/javascript" src="JS/Basic_js_test.js" defer></script>
+        <script type="text/javascript" src="JS/date_type.js" defer></script>
+        <script type="text/javascript" src="JS/search.js" defer></script>
+        <script type="text/javascript" src="JS/pop_up.js" defer></script>
+        <script src="JS/login.js" defer></script>
+        <script src="JS/map.js" defer></script>
+        <!--12주차-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+
+    <!--사용된 이미지나 스타일을 미리 정의? 표 스타일 지정 head에 추가(직접)-->
+    <style>
+        table {
+            font-size: 20pt;
+            color: white;
+        }
+    </style>
+         
+    </head>
+    <!--LOL 웹 사이트 – 팝업창-->
+    <body style="background-color: black;"  onload="init_logined();">
+    <!--onload="pop_up();"-->
+    
+
+    <!--네비게이션바-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+    <!--이미지와 텍스트 <div class="container-fluid"> 아래에 붙여넣기-->
+    <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="#"><!--이부분이 없어도 괜찮다고 교수님이 말함-->
+    <img src="image/image1.jpg" alt="Logo" width="100" height="43" class="d-inline-block align-text-top" onmouseover="over(this)" onmouseout="out(this)">
+    <!-- index.html의 로고 이미지 속성을 수정한다.-->
+    </a>
+    
+    </div>
+    </nav>
+      
+    <a class="navbar-brand" href="#">홈페이지 테스트</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+      <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">메인페이지</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="#">기본정보</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="#">챔피언</a>
+      </li>
+      <!--버튼추가-->
+      <li class="nav-item">
+      <a class="nav-link" href="#">패치</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="#">노트</a>
+      </li>
+      <li class="nav-item">
+      <a class="nav-link" href="#">새소식</a>
+      </li>
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        고객지원
+      </a>
+      <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">게임 다운로드</a></li>
+      <li><a class="dropdown-item" href="#">롤 커뮤니티</a></li>
+      <li><a class="dropdown-item" href="#">깃 허브 페이지</a></li>
+      </ul>
+      </li>
+      </ul>
+    </div>
+    <!--검색창 추가-->
+    <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <!--기존 form 태그를 수정한다 / 검색창 추가-->
+    <form class="d-flex" role="search" onsubmit="return googleSearch();"> <!--googleSearch()라는 함수 실행-->
+    <input class="form-control me-2" id="search_input" name="q" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" id="search_btn" type="submit">Search</button>
+    <!--이 버튼에 식별자 추가 id="search_btn"-->
+    <!-- 검색 버튼의 위치를 파악한다. 아래 링크 추가-->
+    <a href="login/login.html" class="btn btn-outline-success" id="login_btn">로그인 하기</a>
+    <!--로그아웃 버튼과 화면을 구현 로그인 후 화면 및 로그아웃 처-->
+    <a href="login/logout.html" class="btn btn-outline-success" id="logout_btn">로그아웃 하기</a>
+    </form>
+    </div>
+    </nav>
+    </div>
+    </nav>
+
+  <!--보강주 프로필추가-->
+  <section style="background-color: #eee;">
+  <div class="container py-5">
+  <div class="row">
+  <div class="col">
+  <nav aria-label="breadcrumb" class="bg-body-tertiary rounded-3 p-3 mb-4">
+  <ol class="breadcrumb mb-0">
+  <li class="breadcrumb-item"><a href="#">Home</a></li>
+  <li class="breadcrumb-item"><a href="#">User</a></li>
+  <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+  </ol>
+  </nav>
+  </div>
+  </div>
+  
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="image/image1.jpg" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">백지연</h5>
+              <p class="text-muted mb-1">Full Stack Developer</p>
+              <p class="text-muted mb-4">대한민국, 서울</p>
+              <div class="d-flex justify-content-center mb-2">
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary">Follow</button>
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary ms-1">Message</button>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4 mb-lg-0">
+            <div class="card-body p-0">
+              <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fas fa-globe fa-lg text-warning"></i>
+                  <p class="mb-0">https://mdbootstrap.com</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-github fa-lg text-body"></i>
+                  <p class="mb-0">mdbootstrap</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                  <p class="mb-0">@mdbootstrap</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                  <p class="mb-0">mdbootstrap</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                  <p class="mb-0">mdbootstrap</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">이름</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">백지연</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">example@example.com</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">(097) 234-5678</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Mobile</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">(098) 765-4321</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!--카카오 맵 추가-->
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ecd6b30b91f976b0f7aebaa3076c6cc" &autoload=false></script>
+          
+        <script type="text/javascript">
+          kakao.maps.load(function() { // v3가모두로드된후, 이콜백함수가실행됩니다.
+          var map = new kakao.maps.Map(node, options);
+          });
+          </script>
+         
+         <div id="map" style="width:800px;height:600px; margin: 0 auto;"></div>
+
+      </div>
+    </div>
+  </section>
+
+        <hr>
+        <div style="display: flex; justify-content: center;">
+            <h3 style="font-size: 24px; font-weight: bold; font-style: italic; color: white; font-family: '굴림';">
+            라이엇 게임 회사 정보 2024년 3월 작성됨 </h3>
+        </div>
+    </body>
+</html>

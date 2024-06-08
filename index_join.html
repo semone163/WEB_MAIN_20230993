@@ -26,6 +26,80 @@
     </head>
     <!--LOL 웹 사이트 – 팝업창-->
     <body style="background-color: black;" onload="pop_up();">
+     <!--네비게이션바-->
+    
+    <!--nav class="navbar navbar-expand-lg bg-body-tertiary" class="navbar bg-dark border-bottom border-body" data-bs-theme="dark"-->
+    <nav class="navbar" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+        <!--이미지와 텍스트 <div class="container-fluid"> 아래에 붙여넣기-->
+        <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+         <a class="navbar-brand" href="#"><!--이부분이 없어도 괜찮다고 교수님이 말함-->
+        <img src="image/image1.jpg" alt="Logo" width="100" height="43" class="d-inline-block align-text-top" onmouseover="over(this)" onmouseout="out(this)">
+        <!-- index.html의 로고 이미지 속성을 수정한다.-->
+        </a>
+        </div>
+        </nav>
+    
+        <a class="navbar-brand" href="#">홈페이지 테스트</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">메인페이지</a>
+        </li>
+        <li class="nav-item">
+        <a  class="nav-link" href="login/profile.html" target='_blank'>기본정보(프로필)</a>
+        </li>
+        <li class="nav-item">
+         <a class="nav-link" href="https://www.leagueoflegends.com/ko-kr/champions/">챔피언</a>
+        </li>
+        <!--버튼추가-->
+        <li class="nav-item">
+        <a class="nav-link" href="https://www.leagueoflegends.com/ko-kr/news/tags/patch-notes/">패치</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="https://download.kr.riotgames.com/league">다운로드(노트)</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="https://www.leagueoflegends.com/ko-kr/news/">새소식</a>
+        </li>
+    
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          고객지원
+        </a>
+        <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">게임 다운로드</a></li>
+        <li><a class="dropdown-item" href="#">롤 커뮤니티</a></li>
+        <li><a class="dropdown-item" href="#">깃 허브 페이지</a></li>
+        </ul>
+        </li>
+        </ul>
+        </div>
+        <!--검색창 추가-->
+        <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <!--기존 form 태그를 수정한다 / 검색창 추가-->
+        <form class="d-flex" role="search" onsubmit="return googleSearch();"> <!--googleSearch()라는 함수 실행-->
+        <input class="form-control me-2" id="search_input" name="q" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" id="search_button_msg" type="submit">Search</button>
+        <!--이 버튼에 식별자 추가 id="search_btn"-->
+                      
+        <!-- 검색 버튼의 위치를 파악한다. 아래 링크 추가-->
+        <a href="login/login.html" class="btn btn-outline-success" id="login_btn">로그인 하기</a>
+    
+        <!--기존 로그인 버튼 옆에 회원가입 버튼 추가-->
+        <button class="btn btn-outline-success" type="submit" onclick="location.href='join.html'">회원가입</button>
+        <input class="btn btn-primary btn-lg" onclick="join()" type="button" id="join_btn" value="회원 가입" />              
+        </form>
+        </div>
+        </nav>
+        </div>
+        </nav>
 
         <br>
         <!----> br은 줄 바꿈입니다.-->
